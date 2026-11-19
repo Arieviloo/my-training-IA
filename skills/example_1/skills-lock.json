@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "skills": {
+    "cavernaman": {
+      "source": "jagoff/cavernaman",
+      "commit": "0f95b9939d5a9a20cd0f929d0d3ffd8cc615ae24",
+      "sourceType": "github",
+      "skillPath": "skills/cavernaman/SKILL.md",
+      "computedHash": "32f0c70a9ab26b5b929d9cdc96acd126767877e7db916b2fb1a259c795020775"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "83485963700bcf11d5bf78118facb301676b69d918fee2e45a95e7f1a2840f6c"
+    }
+  }
+}
