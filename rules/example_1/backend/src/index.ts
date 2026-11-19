@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 import weatherRouter from './weather';
 
-app.get('/health', (req: Request, res: Response) => {
+app.get('/health', (_req: Request, res: Response) => {
   res.json({ 
     status: 'healthy',
     timestamp: new Date().toISOString()
@@ -22,7 +22,7 @@ app.get('/health', (req: Request, res: Response) => {
 
 app.use('/api', weatherRouter);
 
-app.use((err: Error, req: Request, res: Response, next: any) => {
+app.use((err: Error, _req: Request, res: Response, _next: any) => {
   console.error(err.stack);
   res.status(500).json({ 
     error: 'Something went wrong!',

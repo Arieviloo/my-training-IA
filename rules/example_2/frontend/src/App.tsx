@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { WeatherView } from '@/views/WeatherView'
 
 type ApiStatus = 'checking' | 'online' | 'offline'
 
@@ -43,6 +44,8 @@ function App() {
       <h1 className="text-6xl font-bold text-foreground">
         template
       </h1>
+
+      <WeatherView />
 
       <div className="absolute bottom-8 flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full backdrop-blur-sm">
         <div className={`w-3 h-3 rounded-full ${getStatusColor()} animate-pulse`}></div>

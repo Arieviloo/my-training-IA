@@ -1,0 +1,1 @@
+{"root":["./src/app.ts","./src/index.ts","./src/data/open-meteo.api.ts","./src/routes/weather.routes.ts","./src/services/weather.service.ts","./src/shared/logger.ts","./src/types/weather.ts"],"version":"5.9.2"}

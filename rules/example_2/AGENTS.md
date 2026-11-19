@@ -5,7 +5,7 @@ Guia de referência rápida para LLMs e desenvolvedores. Leia antes de qualquer 
 ## Regras do projeto
 
 - Padrões de codificação: [`.agents/rules/code-standards.md`](.agents/rules/code-standards.md) — **leitura obrigatória antes de escrever qualquer código.**
-- Regras de testes: [`.agents/rules/tests.md`](.agents/rules/tests.md) — **leitura obrigatória antes de escrever qualquer teste.**
+- Regras de testes: [`.agents/rules/tests.md`](.agents/rules/tests.md) — **leitura obrigatória antes de escrever qualquer código (produção ou teste).**
 - Regras de React: [`.agents/rules/react.md`](.agents/rules/react.md) — **leitura obrigatória antes de escrever qualquer componente frontend.**
 - Estrutura de pastas: [`.agents/rules/folder-structure.md`](.agents/rules/folder-structure.md) — **leitura obrigatória antes de criar qualquer arquivo ou pasta.**
 - Regras de Node.js: [`.agents/rules/node.md`](.agents/rules/node.md) — **leitura obrigatória antes de escrever qualquer código backend/Node.**
@@ -82,6 +82,7 @@ Sanity check do backend: `curl http://localhost:3000/health` → `{"status":"hea
 | `npm run preview` | Serve o build de produção localmente |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | Só o type-check, sem build |
+| `npm test` | Vitest — **Obrigatório: deve estar configurado e passando em toda entrega** |
 
 ### `backend/`
 | Comando | O que faz |
@@ -89,12 +90,27 @@ Sanity check do backend: `curl http://localhost:3000/health` → `{"status":"hea
 | `npm run dev` | Dev server com hot-reload |
 | `npm run build` | Compila TS → `dist/` |
 | `npm start` | Roda o build compilado (`node dist/index.js`) — requer `npm run build` antes |
-| `npm test` | **Ainda não implementado** (`no test specified` → exit 1) |
+| `npm test` | Vitest — **Obrigatório: deve estar configurado e passando em toda entrega** |
 
-## Testes
+## Testes — OBRIGATÓRIO ⛔
 
-- **Backend:** não há testes configurados. `npm test` falha propositalmente até um framework (ex.: Vitest ou Jest) ser adicionado.
-- **Frontend:** não há testes configurados. Verificação disponível hoje: `npm run typecheck` e `npm run lint`.
+- **Nenhuma tarefa está completa sem testes.** Código de produção entregue sem testes
+  automatizados correspondentes é entregue INCOMPLETO e deve ser tratado como falha.
+- Antes de escrever código, leia [`tests.md`](.agents/rules/tests.md) e decida quais
+  testes serão criados. A entrega deve incluir:
+  1. Testes unitários das regras de negócio (services/hooks).
+  2. Testes de rota/endpoint no backend (casos de sucesso e erro: 200, 400, 404, 502...).
+  3. Testes do frontend para lógica testável (hooks, utilitários) com chamadas HTTP mockadas.
+- Testes espelham `src/` em `tests/` (ex.: `src/services/weather.service.ts` →
+  `tests/weather.service.test.ts`).
+- Nunca teste APIs externas reais (Open-Meteo, etc.) — sempre mock.
+- Cobertura mínima: **80%** (`npx vitest run --coverage`).
+- O comando de verificação final é: `npm test` em backend e frontend. Se `npm test`
+  não existir, **criar a configuração do framework de testes (Vitest) faz parte da tarefa**.
+- Checklist antes de encerrar qualquer tarefa:
+  - [ ] `npm test` (backend) passando
+  - [ ] `npm test` (frontend) passando
+  - [ ] Novo código de produção coberto por pelo menos um teste
 
 ## Convenções e notas
 
