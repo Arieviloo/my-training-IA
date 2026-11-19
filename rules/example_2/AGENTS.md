@@ -5,16 +5,15 @@ Guia de referência rápida para LLMs e desenvolvedores. Leia antes de qualquer 
 ## Regras do projeto
 
 - Padrões de codificação: [`.agents/rules/code-standards.md`](.agents/rules/code-standards.md) — **leitura obrigatória antes de escrever qualquer código.**
+- Regras de testes: [`.agents/rules/tests.md`](.agents/rules/tests.md) — **leitura obrigatória antes de escrever qualquer teste.**
+- Regras de React: [`.agents/rules/react.md`](.agents/rules/react.md) — **leitura obrigatória antes de escrever qualquer componente frontend.**
+- Estrutura de pastas: [`.agents/rules/folder-structure.md`](.agents/rules/folder-structure.md) — **leitura obrigatória antes de criar qualquer arquivo ou pasta.**
+- Regras de Node.js: [`.agents/rules/node.md`](.agents/rules/node.md) — **leitura obrigatória antes de escrever qualquer código backend/Node.**
+- Regras de JavaScript/TypeScript: [`.agents/rules/javascript-typescript.md`](.agents/rules/javascript-typescript.md) — **leitura obrigatória antes de escrever qualquer código JS/TS.**
 
 ## Visão geral
 
-Projeto full-stack JavaScript/TypeScript com duas aplicações independentes (monorepo simples, sem workspaces):
-
-```
-.
-├── frontend/   # SPA em React + Vite (porta 5173)
-└── backend/    # API REST em Express + TypeScript (porta 3000)
-```
+Projeto full-stack JavaScript/TypeScript com duas aplicações independentes (monorepo simples, sem workspaces): `frontend/` (SPA em React + Vite, porta 5173) e `backend/` (API REST em Express + TypeScript, porta 3000). A estrutura completa de pastas está documentada em [`.agents/rules/folder-structure.md`](.agents/rules/folder-structure.md).
 
 ## Papel de cada tecnologia
 
